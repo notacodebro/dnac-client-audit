@@ -39,8 +39,9 @@ def parser():
 
 def printer(request, meta):
     response = json.loads(request.text)
+    print('*'*64)
     if meta == 'mac':
-        print('*'*64)
+        #print(json.dumps(json.loads(request.text), indent=3))
         print(f"Client hostname: {response['detail']['hostName']}") 
         print(f"Client IP: {response['detail']['hostIpV4']}") 
         print(f"Client connectivity: {response['detail']['hostType']}") 
@@ -52,7 +53,14 @@ def printer(request, meta):
         print('*'*64)
         print(f"Client health score: {response['detail']['healthScore'][0]['score']}") 
     else: 
-        print(json.dumps(json.loads(request.text), indent=3))
+        #print(json.dumps(json.loads(request.text), indent=3))
+        print(f"Site: {response['response'][0]['siteId']}") 
+        print(f"Total Clients: {response['response'][0]['scoreDetail'][0]['clientCount']}") 
+        print('*'*64)
+        print(f"Wired Clients: {response['response'][0]['scoreDetail'][1]['clientCount']}") 
+        print(f"Good Clients: {response['response'][0]['scoreDetail'][1]['scoreList'][2]['clientCount']}") 
+        print(f"Poor Clients: {response['response'][0]['scoreDetail'][1]['scoreList'][0]['clientCount']}") 
+        
 
 def main():
     args = parser()
