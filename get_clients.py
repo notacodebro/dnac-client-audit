@@ -8,7 +8,7 @@ import base64
 import urllib3
 
 
-BASE_URL = 'https://172.17.7.200'
+BASE_URL = 'https://sandboxdnac.cisco.com'
 urllib3.disable_warnings()
 
 def authentication(material):

@@ -9,8 +9,8 @@ import urllib3
 import pandas as pd
 from tabulate import tabulate
 
-#BASE_URL = 'https://172.17.7.200'
-BASE_URL = 'https://sandboxdnac2.cisco.com'
+BASE_URL = 'https://localhost:9443'
+#BASE_URL = 'https://sandboxdnac.cisco.com'
 POPPED_TAGS = ['scoreList', 'starttime', 'endtime', 'maintenanceAffectedClientCount', 'duidCount', 'randomMacCount']
 urllib3.disable_warnings()
 
